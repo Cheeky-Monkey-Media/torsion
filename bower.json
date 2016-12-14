@@ -1,0 +1,11 @@
+{
+  "name": "torsion",
+  "private": "true",
+  "dependencies": {
+    "foundation-sites": "6.1.2",
+    "motion-ui": "1.1.0",
+    "intentionjs": "0.9.9",
+    "underscore": "1.7.0",
+    "viewportsize": "latest"
+  }
+}
