@@ -1,0 +1,20 @@
+{
+  "name": "generator-torsion",
+  "version": "0.1.0",
+  "description": "Scaffolding for Torsion Projects",
+  "author": "Cheeky Monkey Media",
+  "main": "app/index.js",
+  "files": [
+    "generators/app",
+    "generators/d8",
+    "generators/d7",
+    "generators/wp"
+  ],
+  "keywords": [
+    "yeoman-generator"
+  ],
+  "dependencies": {
+    "yeoman-generator": "^0.24.1",
+    "yosay": "^1.2.0"
+  }
+}
