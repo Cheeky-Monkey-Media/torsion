@@ -4,6 +4,7 @@
   "description": "Scaffolding for Torsion Projects",
   "author": "Cheeky Monkey Media",
   "main": "app/index.js",
+  "repository": "Cheeky-Monkey-Media/torsion",
   "files": [
     "generators/app",
     "generators/d8",
