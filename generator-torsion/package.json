@@ -4,7 +4,10 @@
   "description": "Scaffolding for Torsion Projects",
   "author": "Cheeky Monkey Media",
   "main": "app/index.js",
-  "repository": "Cheeky-Monkey-Media/torsion",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cheeky-monkey-media/torsion.git"
+  },
   "files": [
     "generators/app",
     "generators/d8",
@@ -17,5 +20,14 @@
   "dependencies": {
     "yeoman-generator": "^0.24.1",
     "yosay": "^1.2.0"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/cheeky-monkey-media/torsion/issues"
+  },
+  "homepage": "https://github.com/cheeky-monkey-media/torsion#readme",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "license": "ISC"
 }
