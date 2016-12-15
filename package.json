@@ -1,0 +1,8 @@
+{
+  "name": "torsion",
+  "version": "0.1.0",
+  "private": true,
+  "devDependencies": {
+    "generator-torsion": "0.1.0"
+  }
+}

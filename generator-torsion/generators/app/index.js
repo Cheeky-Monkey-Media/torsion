@@ -22,28 +22,44 @@ module.exports = generators.Base.extend({
       choices: [{
         name: 'Foundation',
         value: 'includeFoundation',
-        checked: true
-      }, {
-        name: 'Bootstrap',
-        value: 'includeBootstrap',
-        checked: true
-      }
+        checked: false
+      //}, {
+        //name: 'Bootstrap',
+        //value: 'includeBootstrap',
+        //checked: true
       }]
     }];
 
     return this.prompt(prompts).then(function (answers) {
-      var features = answers.features;
+      var frameworks = answers.frameworks;
 
-      function hasFeature(feat) {
-        return features && features.indexOf(feat) !== -1;
+      function hasFeature(framework) {
+        return frameworks && frameworks.indexOf(framework) !== -1;
       };
 
       // manually deal with the response, get back and store the results.
       // we change a bit this way of doing to automatically do this in the self.prompt() method.
       this.includeFoundation = hasFeature('includeFoundation');
-      this.includeBootstrap = hasFeature('includeBootstrap');
+      //this.includeBootstrap = hasFeature('includeBootstrap');
     }.bind(this));
+  },
 
-
+  writing: {
+    packageJSON: function () {
+      this.fs.copyTpl(
+        this.templatePath('_package.json'),
+        this.destinationPath('UI/package.json')
+      );
+    },    
+    bowerJSON: function () {
+      this.fs.copyTpl(
+        this.templatePath('_bower.json'),
+        this.destinationPath('UI/bower.json'),
+        {
+          includeFoundation: this.includeFoundation
+          //includeBootstrap: this.includeBootstrap
+        }
+      );
+    }
   }
 });
