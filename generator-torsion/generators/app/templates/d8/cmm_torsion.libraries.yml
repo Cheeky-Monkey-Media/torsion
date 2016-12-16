@@ -1,0 +1,42 @@
+#  Global library
+global:
+  version: 1.x
+  css:
+    theme:
+      css/dist/style.css: { }
+      css/dist/ckeditor.css: { }
+  js:
+    js/dist/app.js: { weight: -1 }
+
+    js/dist/components/foundation.js: { scope: footer, weight: -10 }
+    js/dist/components/intentinit.js: { scope: footer, weight: -12 }
+    js/dist/components/intentcontext.js: { scope: footer, weight: -15 }
+    js/dist/components/primary-menu.js: { scope: footer, weight: -13 }
+    js/dist/global.js: { scope: footer, weight: -9 }
+
+    js/vendor/intention.js: { scope: footer, weight: -16 }
+    js/vendor/underscore-min.js: { scope: footer, weight: -17 }
+    js/vendor/viewportSize-min.js: { scope: footer, weight: -18 }
+
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/drupalSettings
+    - core/drupal.ajax
+    - core/jquery.once
+    - core/modernizr
+
+# Front Page Library
+front-page:
+  version: VERSION
+  css:
+    theme:
+      #css/vendor/example.css: {}
+  js:
+    js/dist/components/front-page.js: {}
+
+# external library example
+# google.fonts:
+#  css:
+#    //fonts.googleapis.com/css?family=Open+Sans:300,400,700,800,900 { type: external }
+
