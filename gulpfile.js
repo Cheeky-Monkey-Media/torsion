@@ -7,26 +7,24 @@ var debug         = require('gulp-debug');
 var modernizr     = require('gulp-modernizr');
 var shell         = require('gulp-shell');
 var sourcemaps    = require('gulp-sourcemaps');
-var wiredep       = require('wiredep').stream;
 
 
-var paths = {
-  patternlab: ['pattern-lab'], // Location of the Pattern Lab folder
-  theme: [],
-  scss: ['pattern-lab/source/_patterns/**/*.scss'],
-  twig: ['pattern-lab/source/_patterns/**/*.twig'],
-  cssOutput: ['pattern-lab/public/css']
-};
+var src = 'pattern-lab/source/',
+  theme = '',
+  scss = 'pattern-lab/source/_patterns/**/*.scss',
+  twig = 'pattern-lab/source/_patterns/**/*.twig',
+  cssOutput =  'pattern-lab/public/css'
+;
 
 // Watch for changes.
 gulp.task('watch', ['browserSync', 'sass'], function() {
-  gulp.watch(paths.scss, ['sass', ['patternlab']]);
-  gulp.watch(paths.twig, ['patternlab']);
+  gulp.watch(scss, ['sass', ['patternlab']]);
+  gulp.watch(twig, ['patternlab']);
 });
 
 // Compile Sass.
 gulp.task('sass', function() {
-  return gulp.src(paths.scss)
+  return gulp.src(scss)
       .pipe(sourcemaps.init())
       .pipe(sassGlob())
       .pipe(sass({
