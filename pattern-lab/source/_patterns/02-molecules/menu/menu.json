@@ -1,0 +1,12 @@
+{
+  "menu": {
+    "about": {
+      "text": "About",
+      "src": "/"
+    },
+    "products": {
+      "text": "Products",
+      "src": "/"
+    }
+  }
+}
