@@ -24,7 +24,6 @@
     "gulp-replace": "0.5.4",
     "gulp-sass": "2.2.0",
     "gulp-sass-glob": "^1.0.8",
-    "gulp-sass-globbing": "0.0.2",
     "gulp-shell": "^0.5.2",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-svgmin": "^1.2.2",
