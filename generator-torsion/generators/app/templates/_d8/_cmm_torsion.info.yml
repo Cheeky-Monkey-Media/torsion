@@ -1,13 +1,13 @@
-name: CMM Torsion
+name: <%= name %>
 type: theme
 base theme: classy
-description: Custom CMM theme for D8
+description: Custom theme for Drupal8
 package: Core
 version: 1.0.0
 core: 8.x
-screenshot: images/screenshot.png
+screenshot: img/screenshot.png
 libraries:
- - cmm_torsion/global
+ - <%= libraries %>/global
 
 ckeditor_stylesheets:
   - css/dist/ckeditor.css

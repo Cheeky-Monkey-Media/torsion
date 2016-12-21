@@ -18,6 +18,11 @@ module.exports = generators.Base.extend({
     this.log(yosay('Torsion - Monkeys are sexy.'));
 
     var prompts = [{
+      type: 'input',
+      name: 'projectname',
+      message: 'Your project name:',
+      deafault: 'torsion'
+    },{
       type: 'list',
       name: 'cms',
       message: 'Which CMS are you building for?',
@@ -32,7 +37,7 @@ module.exports = generators.Base.extend({
       }, {
         name: 'Drupal 7',
         value: 'includeD7',
-        checked: true
+        checked: false
       }, {
         name: 'Wordpress',
         value: 'includeWP',
@@ -41,7 +46,7 @@ module.exports = generators.Base.extend({
     },{
       type: 'checkbox',
       name: 'features',
-      message: 'Additional Features (check all that apply): ',
+      message: 'Additional features (check all that apply): ',
       choices: [{
         name: 'Modernizr',
         value: 'includeModernizr',
@@ -49,6 +54,10 @@ module.exports = generators.Base.extend({
       },{
         name: 'jQuery',
         value: 'includejQuery',
+        checked: 'false'
+      },{
+        name: 'IntentionJS',
+        value: 'includeIntentionJS',
         checked: 'false'
       }]
     }];
@@ -60,11 +69,14 @@ module.exports = generators.Base.extend({
         return cms && cms.indexOf(cms) !== -1;
       };
 
+      this.projectname = answers.projectname;
+      this.projectnameSafe = answers.projectname.toLowerCase().replace(/ /g, "_");
       this.includeD8 = hasFeature('includeD8');
       this.includeD7 = hasFeature('includeD7');
       this.includeWP = hasFeature('includeWP');
       this.includeModernizr = hasFeature('includeModernizr');
       this.includejQuery = hasFeature('includejQuery');
+      this.includeIntentionJS = hasFeature('includeIntentionJS');
 
     }.bind(this));
   },
@@ -97,6 +109,12 @@ module.exports = generators.Base.extend({
         dependencies: {}
       };
 
+      if (this.includeIntentionJS) {
+        bowerJson.dependencies['intentionjs'] = '0.9.9';
+        bowerJson.dependencies['underscore'] = '1.7.0';
+        bowerJson.dependencies['viewportsize'] = 'latest';
+      }
+
       if (this.includejQuery) {
         bowerJson.dependencies['jquery'] = '~2.1.1';
       }
@@ -105,6 +123,41 @@ module.exports = generators.Base.extend({
         bowerJson.dependencies['modernizr'] = '~2.8.1';
       }
       this.fs.writeJSON('patternlab/bower.json', bowerJson);
+    },
+    themeFiles: function() {
+      if (this.includeD8) {
+        this.fs.copy(
+          this.templatePath('_d8/_favicon.ico'),
+          this.destinationPath('web/themes/custom/' + this.projectnameSafe + '/favicon.ico')
+        ),
+        this.fs.copy(
+          this.templatePath('_d8/_logo.png'),
+          this.destinationPath('web/themes/custom/' + this.projectnameSafe + '/logo.png')
+        ),
+        this.fs.copyTpl(
+          this.templatePath('_d8/_cmm_torsion.libraries.yml'),
+          this.destinationPath('web/themes/custom/' + this.projectnameSafe + '/' + this.projectnameSafe + '.libraries.yml')
+        ),
+        this.fs.copyTpl(
+          this.templatePath('_d8/_cmm_torsion.info.yml'),
+          this.destinationPath('web/themes/custom/' + this.projectnameSafe + '/' + this.projectnameSafe + '.info.yml'),
+          {
+            name: this.projectname,
+            libraries: this.projectnameSafe
+          }
+        ),
+        this.fs.copyTpl(
+          this.templatePath('_d8/_cmm_torsion.breakpoints.yml'),
+          this.destinationPath('web/themes/custom/' + this.projectnameSafe + '/' + this.projectnameSafe + '.breakpoints.yml'),
+          {
+            theme_name: this.projectnameSafe
+          }
+        ),
+        this.fs.copyTpl(
+          this.templatePath('_d8/_templates/_html/_html.html.twig'),
+          this.destinationPath('web/themes/custom/' + this.projectnameSafe + '/templates/html/html.html.twig')
+        )
+      }
     }
   }
 });

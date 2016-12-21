@@ -1,0 +1,15 @@
+# Global library
+global:
+  version: 1.x
+  css:
+    theme:
+      css/dist/style.css: { }
+
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/drupalSettings
+    - core/drupal.ajax
+    - core/jquery.once
+    - core/modernizr
+
