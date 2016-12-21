@@ -30,7 +30,9 @@ gulp.task('sass', function() {
       .pipe(sass({
         includePaths: [
           require('node-normalize-scss').includePaths,
-          'node_modules/susy/sass'
+          'bower_components/sassline/assets/sass',
+          'node_modules/susy/sass',
+          'node_modules/breakpoint-sass/stylesheets'
         ]
       }).on('error', sass.logError))
       .pipe(autoprefixer({
@@ -81,4 +83,4 @@ gulp.task('modernizr', function() {
       .pipe(gulp.dest("pattern-lab/source/js"))
 });
 
-gulp.task('default',['watch']);
+gulp.task('default',['patternlab', 'watch']);

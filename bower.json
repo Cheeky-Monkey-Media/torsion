@@ -7,5 +7,10 @@
     "intentionjs": "0.9.9",
     "underscore": "1.7.0",
     "viewportsize": "latest"
+  },
+  "devDependencies": {
+    "jquery-drilldown": "^1.1.1",
+    "sassline": "^2.1.2",
+    "responsive-nav": "^1.0.39"
   }
 }

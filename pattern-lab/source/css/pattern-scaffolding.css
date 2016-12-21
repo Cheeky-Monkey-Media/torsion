@@ -10,6 +10,14 @@
   padding: 0 0.5em;
 }
 
+#sg-patterns h2 {
+  font-size: 3rem;
+}
+
+#sg-patterns h2 a {
+  color: #373a3c;
+}
+
 .demo-animate {
   background: #ddd;
   padding: 1em;
@@ -38,14 +46,12 @@
   min-width: 5em;
   max-width: 14em;
   border: 1px solid #ddd;
-  border-radius: 8px;
 }
 
 .sg-swatch {
   display: block;
   height: 4em;
   margin-bottom: 0.3em;
-  border-radius: 5px;
 }
 
 .sg-label {

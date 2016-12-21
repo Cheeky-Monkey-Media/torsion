@@ -1,0 +1,12 @@
+// Colors
+$primary-color: #1f8dd6;
+$alt-color: gray;
+
+// Media Queries
+$smallMax: all and (max-width: 320px);
+$smallportrait: all and (min-width: 321px) and (max-width: 640px);
+$medium: all and (min-width: 641px) and (max-width: 768px);
+$mediumportrait: all and (min-width: 769px) and (max-width: 1024px);
+$large: all and (min-width: 1025px) and (max-width: 1519px);
+$extralarge: all and (min-width: 1520px) and (max-width: 1639px);
+$extraextralarge: all and (min-width: 1640px);

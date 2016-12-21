@@ -31,6 +31,7 @@
     "jshint": "2.9.1",
     "node-normalize-scss": "^1.4.0",
     "run-sequence": "1.2.2",
+    "sassy-inputs": "^1.0.3",
     "susy": "^2.2.12",
     "typesettings": "^3.0.1",
     "yargs": "^3.8.0"
