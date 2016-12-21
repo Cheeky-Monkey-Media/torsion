@@ -27,10 +27,6 @@ module.exports = generators.Base.extend({
       name: 'cms',
       message: 'Which CMS are you building for?',
       choices: [{
-        name: 'None (Static Website)',
-        value: 'none',
-        checked: false
-      }, {
         name: 'Drupal 8',
         value: 'includeD8',
         checked: false
@@ -50,15 +46,15 @@ module.exports = generators.Base.extend({
       choices: [{
         name: 'Modernizr',
         value: 'includeModernizr',
-        checked: 'false'
+        checked: false
       },{
         name: 'jQuery',
         value: 'includejQuery',
-        checked: 'false'
+        checked: false
       },{
         name: 'IntentionJS',
         value: 'includeIntentionJS',
-        checked: 'false'
+        checked: false
       }]
     }];
 
@@ -99,7 +95,10 @@ module.exports = generators.Base.extend({
     packageJSON: function () {
       this.fs.copyTpl(
         this.templatePath('_package.json'),
-        this.destinationPath('patternlab/package.json')
+        this.destinationPath('patternlab/package.json'),
+        {
+          includeModernizr: this.includeModernizr,
+        }        
       );
     },    
     bowerJSON: function () {
@@ -119,9 +118,6 @@ module.exports = generators.Base.extend({
         bowerJson.dependencies['jquery'] = '~2.1.1';
       }
 
-      if (this.includeModernizr) {
-        bowerJson.dependencies['modernizr'] = '~2.8.1';
-      }
       this.fs.writeJSON('patternlab/bower.json', bowerJson);
     },
     themeFiles: function() {
