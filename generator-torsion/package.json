@@ -1,6 +1,6 @@
 {
   "name": "generator-torsion",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Scaffolding for Torsion Projects",
   "author": "Cheeky Monkey Media",
   "main": "app/index.js",
@@ -19,7 +19,8 @@
   ],
   "dependencies": {
     "yeoman-generator": "^0.24.1",
-    "yosay": "^1.2.0"
+    "yosay": "^1.2.0",
+    "underscore.string": "^3.1.1"
   },
   "bugs": {
     "url": "https://github.com/cheeky-monkey-media/torsion/issues"
