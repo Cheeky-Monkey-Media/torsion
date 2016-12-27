@@ -2,15 +2,13 @@
   "name": "torsion",
   "private": "true",
   "dependencies": {
-    "foundation-sites": "6.1.2",
-    "motion-ui": "1.1.0",
-    "intentionjs": "0.9.9",
     "underscore": "1.7.0",
     "viewportsize": "latest"
   },
+  "dependencies": {},
   "devDependencies": {
-    "jquery-drilldown": "^1.1.1",
-    "sassline": "^2.1.2",
-    "responsive-nav": "^1.0.39"
+    "foundation-sites": "^6.3.0",
+    "intentionjs": "^0.9.9",
+    "motion-ui": "^1.2.2"
   }
 }

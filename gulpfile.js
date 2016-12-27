@@ -12,8 +12,8 @@ var sourcemaps    = require('gulp-sourcemaps');
 var src = 'pattern-lab/source/',
     theme = '',
     scss = 'pattern-lab/source/_patterns/**/*.scss',
-    twig = 'pattern-lab/source/_patterns/**/*.twig',
-    cssOutput =  'pattern-lab/public/css'
+    twig = 'pattern-lab/source/_patterns/**/*.{twig, md}',
+    cssOutput =  'pattern-lab/source/css'
     ;
 
 // Watch for changes.
@@ -29,11 +29,7 @@ gulp.task('sass', function() {
       .pipe(sassGlob())
       .pipe(sass({
         includePaths: [
-          require('node-normalize-scss').includePaths,
-          'bower_components/sassline/assets/sass',
-          'bower_components/offcanvasmenueffects',
-          'node_modules/susy/sass',
-          'node_modules/breakpoint-sass/stylesheets'
+          // @TODO. Can't get the includes paths to work'
         ]
       }).on('error', sass.logError))
       .pipe(autoprefixer({
@@ -41,7 +37,7 @@ gulp.task('sass', function() {
         cascade: false
       }))
       .pipe(sourcemaps.write('./'))
-      .pipe(gulp.dest('pattern-lab/source/css'))
+      .pipe(gulp.dest(cssOutput))
       .pipe(browserSync.reload({
         stream: true
       }))
