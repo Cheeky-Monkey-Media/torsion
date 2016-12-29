@@ -1,26 +1,38 @@
-var gulp          = require('gulp');
-var autoprefixer  = require('gulp-autoprefixer');
-var browserSync   = require('browser-sync').create();
-var sass          = require('gulp-sass');
-var sassGlob      = require('gulp-sass-glob');
-var debug         = require('gulp-debug');
-var modernizr     = require('gulp-modernizr');
-var shell         = require('gulp-shell');
-var sourcemaps    = require('gulp-sourcemaps');
+/*
+ * require plugins
+ */
+var 
+  gulp          = require('gulp'),
+  autoprefixer  = require('gulp-autoprefixer'),
+  browserSync   = require('browser-sync').create(),
+  sass          = require('gulp-sass'),
+  sassGlob      = require('gulp-sass-glob'),
+  debug         = require('gulp-debug'),
+  modernizr     = require('gulp-modernizr'),
+  shell         = require('gulp-shell'),
+  sourcemaps    = require('gulp-sourcemaps'),
+  prompt        = require('gulp-prompt');
 
+/*
+ * setup variables
+ */
+var
+  src           = 'pattern-lab/source/',
+  theme         = '',
+  scss          = 'pattern-lab/source/_patterns/**/*.scss',
+  twig          = 'pattern-lab/source/_patterns/**/*.{twig, md}',
+  cssOutput     = 'pattern-lab/source/css',
+  cms           = '',
+  themePath     = '',
+  projectName   = '';
 
-var src = 'pattern-lab/source/',
-    theme = '',
-    scss = 'pattern-lab/source/_patterns/**/*.scss',
-    twig = 'pattern-lab/source/_patterns/**/*.{twig, md}',
-    cssOutput =  'pattern-lab/source/css'
-    ;
 
 // Watch for changes.
 gulp.task('watch', ['browserSync', 'sass'], function() {
   gulp.watch(scss, ['sass', ['patternlab']]);
   gulp.watch(twig, ['patternlab']);
 });
+
 
 // Compile Sass.
 gulp.task('sass', function() {
@@ -43,6 +55,7 @@ gulp.task('sass', function() {
       }))
 });
 
+
 // Browser Sync Options.
 gulp.task('browserSync', function() {
   browserSync.init({
@@ -51,6 +64,7 @@ gulp.task('browserSync', function() {
     }
   })
 });
+
 
 // Generates Pattern Lab Twig files.
 gulp.task('patternlab', function () {
@@ -63,6 +77,63 @@ gulp.task('patternlab', function () {
       }))
 });
 
+
+/**
+ * get user input and store in global variables
+ */
+gulp.task('getUserInput', function () {
+  return gulp.src('', {read: false})
+  .pipe(prompt.prompt([{
+    type: 'input',
+    name: 'projectname',
+    message: 'Your project name:',
+    default: 'torsion',
+  },{
+    type: 'list',
+    name: 'cms',
+    message: 'Which CMS are you building for?',
+    choices: [{
+      name: 'Drupal 8',
+      value: 'drupal8',
+      checked: true
+    }, {
+      name: 'Drupal 7',
+      value: 'drupal7',
+      checked: false
+    }, {
+      name: 'Wordpress',
+      value: 'wordpress',
+      checked: false
+    }]
+  },{
+    type: 'input',
+    name: 'themepath',
+    message: 'Theme path from root [no trailing slash]:',
+    default: '../themes/custom'
+  }], function(res) {
+    cms = res.cms;
+    projectName = res.projectname;
+    themePath = res.themepath;
+  }))
+});
+
+
+/*
+ * initialize torsion using yeoman scaffolding
+ * @dependency: getUserInput (function)
+ */
+gulp.task('initializeTorsion', ['getUserInput'], function() {
+  return gulp.src('', {read: false})
+  .pipe(shell(
+    [
+      'yo torsion --cms "' + cms + '" --projectname "' + projectName + '" --themepath "' + themePath + '"'
+    ],{
+      interactive: true
+    }
+  ));
+});
+
+
 // Generates modernizr.
 gulp.task('modernizr', function() {
   gulp.src('./js/*.js')
@@ -70,4 +141,5 @@ gulp.task('modernizr', function() {
       .pipe(gulp.dest("pattern-lab/source/js"))
 });
 
+gulp.task('init',['initializeTorsion']);
 gulp.task('default',['patternlab', 'watch']);
