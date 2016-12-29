@@ -1,0 +1,25 @@
+name = <%= d7name %>
+description = Custom theme for Drupal7
+screenshot = img/screenshot.png
+core = 7.x
+engine = phptemplate
+
+; load main style CSS
+stylesheets[all][] = css/dist/style.css
+
+; define regions
+regions[header] = Header
+regions[help] = Help
+regions[page_top] = Page top
+regions[page_bottom] = Page bottom
+regions[breadcrumb] = Breadcrumb
+regions[highlighted] = Highlighted
+regions[primary_menu] = Primary menu
+regions[secondary_menu] = Secondary menu
+regions[featured] = Featured
+regions[content] = Content
+regions[content_top] = Content Top
+regions[content_bottom] = Content Bottom
+regions[sidebar_first] = Sidebar first
+regions[sidebar_second] = Sidebar second
+regions[footer] = Footer
