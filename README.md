@@ -12,6 +12,8 @@ This will open up your browser with an instance of pattern lab running on `http:
 ## Documentation
 1. [Front-end (Pattern Lab)](docs/pattern-lab.md)
 1. [Gulp Tasks](docs/gulp.md)
+1. [Yeoman (Theme Builder)]()
+    1. [Drupal 8](docs/drupal8.md)
 1. [Coding Standards](docs/docing_standards)
 1. [Paragraphs]()  <- Needs docs after its done
 1. [Troubleshooting](docs/troubleshooting.md)
