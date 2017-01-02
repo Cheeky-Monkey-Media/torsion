@@ -1,14 +1,54 @@
-/**
- * Foundation for Sites by ZURB
- * Version 6.1.2
- * foundation.zurb.com
- * Licensed under MIT Open Source
- */
-/**
- * Foundation for Sites by ZURB
- * Version 6.3.0
- * foundation.zurb.com
- * Licensed under MIT Open Source
- */
+.top-bar {
+  padding: 0.5rem; }
+  .top-bar::before, .top-bar::after {
+    display: table;
+    content: ' '; }
+  .top-bar::after {
+    clear: both; }
+  .top-bar,
+  .top-bar ul {
+    background-color: #e6e6e6; }
+  .top-bar input {
+    max-width: 200px;
+    margin-right: 1rem; }
+  .top-bar .input-group-field {
+    width: 100%;
+    margin-right: 0; }
+  .top-bar input.button {
+    width: auto; }
+
+.container {
+  max-width: 75rem;
+  margin-right: auto;
+  margin-left: auto; }
+  .container::before, .container::after {
+    display: table;
+    content: ' '; }
+  .container::after {
+    clear: both; }
+
+.main {
+  width: 75%;
+  float: left;
+  padding-right: 0.625rem;
+  padding-left: 0.625rem; }
+  @media print, screen and (min-width: 40em) {
+    .main {
+      padding-right: 0.9375rem;
+      padding-left: 0.9375rem; } }
+  .main:last-child:not(:first-child) {
+    float: right; }
+
+.sidebar_first {
+  width: 25%;
+  float: left;
+  padding-right: 0.625rem;
+  padding-left: 0.625rem; }
+  @media print, screen and (min-width: 40em) {
+    .sidebar_first {
+      padding-right: 0.9375rem;
+      padding-left: 0.9375rem; } }
+  .sidebar_first:last-child:not(:first-child) {
+    float: right; }
 
 /*# sourceMappingURL=style.css.map */

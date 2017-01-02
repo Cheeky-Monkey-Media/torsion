@@ -1,4 +1,5 @@
 {
+  "site_name": "Torsion",
   "key": "value",
   "key2": "use this for variables you want to load globally",
   "title": "Nullizzle shizznit velizzle, hizzle, suscipit own yo', gravida vizzle, arcu.",
@@ -16,11 +17,11 @@
       "src": "http://placeimg.com/400/300/tech",
       "alt": "Rectangle"
     },
-    "landscape-4x3": {
+    "landscape_4x3": {
       "src": "http://placeimg.com/400/300/tech",
       "alt": "4x3 Image"
     },
-    "landscape-16x9": {
+    "landscape_16x9": {
       "src": "http://placeimg.com/640/360/tech",
       "alt": "16x9 Image"
     }

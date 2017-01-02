@@ -1,0 +1,9 @@
+{# include layout template #}
+{%
+  include '@layout/layout.twig' with {
+    header: page.header,
+    content: page.content,
+    sidebar_first: page.sidebar_first,
+    sidebar_second: page.sidebar_second,
+  } only
+%}

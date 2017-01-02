@@ -1,7 +1,7 @@
-<ul class="accordion" data-accordion="accordion" role="tablist">
-  {% for item in items %}
-    <li class="accordion-item" data-accordion-item="">
-      {{ item.content }}
-    </li>
-  {% endfor %}
-</ul>
+{# include accortion component template #}
+{%
+  include '@component/01-accordion/00-basics.twig' with {
+    dataatributes: 'data-multi-expand="true"',
+    items: items
+    } only
+%}
