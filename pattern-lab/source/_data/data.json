@@ -1,9 +1,25 @@
 {
   "site_name": "Torsion",
-  "key": "value",
-  "key2": "use this for variables you want to load globally",
+  "main_menu": {
+    "home": {
+      "href": "#",
+      "text": "Home",
+      "active": "true"
+    },
+    "about": {
+      "href": "#",
+      "text": "About"
+    },
+    "service": {
+      "href": "#",
+      "text": "Service"
+    },
+    "contact": {
+      "href": "#",
+      "text": "Contact"
+    }
+  },
   "title": "Nullizzle shizznit velizzle, hizzle, suscipit own yo', gravida vizzle, arcu.",
-  "lorempixel": "cats",
   "img": {
     "avatar": {
       "src": "http://placeimg.com/100/100/people",

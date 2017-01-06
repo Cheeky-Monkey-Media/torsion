@@ -27,28 +27,50 @@
   .container::after {
     clear: both; }
 
-.main {
-  width: 75%;
-  float: left;
-  padding-right: 0.625rem;
-  padding-left: 0.625rem; }
-  @media print, screen and (min-width: 40em) {
+@media screen and (min-width: 64em) {
+  .main {
+    position: relative;
+    left: 25%; }
+  .sidebar_first {
+    position: relative;
+    left: -75%; } }
+
+.container {
+  max-width: 75rem;
+  margin-right: auto;
+  margin-left: auto; }
+  .container::before, .container::after {
+    display: table;
+    content: ' '; }
+  .container::after {
+    clear: both; }
+
+@media screen and (min-width: 64em) {
+  .main {
+    width: 75%;
+    float: left;
+    padding-right: 0.625rem;
+    padding-left: 0.625rem; } }
+  @media screen and (min-width: 64em) and (min-width: 40em) {
     .main {
       padding-right: 0.9375rem;
       padding-left: 0.9375rem; } }
-  .main:last-child:not(:first-child) {
-    float: right; }
 
-.sidebar_first {
-  width: 25%;
-  float: left;
-  padding-right: 0.625rem;
-  padding-left: 0.625rem; }
-  @media print, screen and (min-width: 40em) {
+@media screen and (min-width: 64em) {
+    .main:last-child:not(:first-child) {
+      float: right; }
+  .sidebar_first {
+    width: 25%;
+    float: left;
+    padding-right: 0.625rem;
+    padding-left: 0.625rem; } }
+  @media screen and (min-width: 64em) and (min-width: 40em) {
     .sidebar_first {
       padding-right: 0.9375rem;
       padding-left: 0.9375rem; } }
-  .sidebar_first:last-child:not(:first-child) {
-    float: right; }
+
+@media screen and (min-width: 64em) {
+    .sidebar_first:last-child:not(:first-child) {
+      float: right; } }
 
 /*# sourceMappingURL=style.css.map */
