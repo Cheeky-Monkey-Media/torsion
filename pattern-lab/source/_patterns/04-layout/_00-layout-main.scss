@@ -1,16 +1,18 @@
-// Sass utilities
-@import 'util/util';
-@import 'global';
-
-// Components
-@import 'grid/grid';
-
 .container {
   @include grid-row;
 }
 
-@include breakpoint(large up) {
+.main {
+  @include grid-colum(9);
+}
 
+.sidebar_first {
+  @include grid-column(3);
+}
+
+
+
+.container.sidebar_first {
   .main {
     @include grid-column-position(3);
   }
@@ -18,5 +20,4 @@
   .sidebar_first {
     @include grid-column-position(-9);
   }
-
 }

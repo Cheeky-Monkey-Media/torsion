@@ -7,7 +7,8 @@ version: 1.0.0
 core: 8.x
 screenshot: img/screenshot.png
 libraries:
- - <%= libraries %>/global
+ - <%= libraries %>/foundation
+ - <%= libraries %>/custom
 
 ckeditor_stylesheets:
   - css/dist/ckeditor.css
@@ -20,6 +21,9 @@ component-libraries:
   component:
     paths:
       - _patterns/02-component
+  module:
+    paths:
+      - _patterns/03-module
   layout:
     paths:
       - _patterns/04-layout

@@ -2,21 +2,21 @@
   "site_name": "Torsion",
   "main_menu": {
     "home": {
-      "href": "#",
-      "text": "Home",
+      "url": "#",
+      "title": "Home",
       "active": "true"
     },
     "about": {
-      "href": "#",
-      "text": "About"
+      "url": "#",
+      "title": "About"
     },
     "service": {
-      "href": "#",
-      "text": "Service"
+      "url": "#",
+      "title": "Service"
     },
     "contact": {
-      "href": "#",
-      "text": "Contact"
+      "url": "#",
+      "title": "Contact"
     }
   },
   "title": "Nullizzle shizznit velizzle, hizzle, suscipit own yo', gravida vizzle, arcu.",

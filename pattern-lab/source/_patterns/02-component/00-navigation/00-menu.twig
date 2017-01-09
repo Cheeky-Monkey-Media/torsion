@@ -1,6 +1,14 @@
 <ul class="menu">
-  <li class="menu-text">Site Title</li>
   {% for item in main_menu %}
-    <li{% if item.active == true %} class="active"{% endif %}><a href="{{ item.href }}">{{ item.text }}</a></li>
+    {%
+      set classes = [
+      item.is_expanded ? 'menu-item--expanded',
+      item.is_collapsed ? 'menu-item--collapsed',
+      item.in_active_trail ? 'active',
+      ]
+    %}
+    <li{{ item.attributes.addClass(classes) }}>
+      <a href="{{ item.url }}">{{ item.title }}</a>
+    </li>
   {% endfor %}
 </ul>
