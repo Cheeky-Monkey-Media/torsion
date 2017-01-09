@@ -41,7 +41,8 @@ gulp.task('sass', function() {
       .pipe(sassGlob())
       .pipe(sass({
         includePaths: [
-          // @TODO. Can't get the includes paths to work'
+          'bower_components/foundation-sites/scss',
+          'bower_components/motion-ui/src'
         ]
       }).on('error', sass.logError))
       .pipe(autoprefixer({

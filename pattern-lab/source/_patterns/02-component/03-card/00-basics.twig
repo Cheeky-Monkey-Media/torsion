@@ -1,10 +1,13 @@
-<div class="card" style="width: 300px;">
-    <div class="card-divider">
-        This is a header
-    </div>
-    <img src="http://lorempixel.com/400/200/{{ lorempixel }}/1">
-    <div class="card-section">
-        <h4>{{ headline.medium }}</h4>
-        <p>{{ excerpt.short }}</p>
-    </div>
+<div class="card">
+  {% if title %}
+  <div class="card-divider">
+     {{ title }}
+  </div>
+  {% endif %}
+    {{ image }}
+  {% if body %}
+  <div class="card-section">
+    {{ body }}
+  </div>
+  {% endif %}
 </div>

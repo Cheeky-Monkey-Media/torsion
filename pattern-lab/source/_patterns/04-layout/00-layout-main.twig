@@ -1,0 +1,23 @@
+<div class="off-canvas-wrapper">
+  <div class="off-canvas position-left" id="offCanvas" data-off-canvas>
+    <!-- Your menu or Off-canvas content goes here -->
+  </div>
+  <div class="off-canvas-content" data-off-canvas-content>
+    <div class="container">
+
+      <div class="main"  role="main">
+        {{ content }}
+      </div>
+      {% if sidebar_first %}
+      <aside class="sidebar_first">
+        {{  sidebar_first }}
+      </aside>
+      {% endif %}
+      {% if sidebar_second %}
+      <aside class="sidebar_second">
+        {{  sidebar_second }}
+      </aside>
+      {% endif %}
+    </div>
+  </div>
+</div>

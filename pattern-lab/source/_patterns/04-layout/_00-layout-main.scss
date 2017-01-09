@@ -1,0 +1,23 @@
+.container {
+  @include grid-row;
+}
+
+.main {
+  @include grid-colum(9);
+}
+
+.sidebar_first {
+  @include grid-column(3);
+}
+
+
+
+.container.sidebar_first {
+  .main {
+    @include grid-column-position(3);
+  }
+
+  .sidebar_first {
+    @include grid-column-position(-9);
+  }
+}

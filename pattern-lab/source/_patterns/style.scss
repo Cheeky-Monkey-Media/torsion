@@ -1,16 +1,5 @@
-/**
- * Foundation for Sites by ZURB
- * Version 6.1.2
- * foundation.zurb.com
- * Licensed under MIT Open Source
- */
-
-@import "foundation";
-
 // Sass utilities
 @import 'util/util';
-
-// Global variables and styles
 @import 'global';
 
 // Components
@@ -26,14 +15,17 @@
 @import 'components/badge';
 @import 'components/breadcrumbs';
 @import 'components/callout';
+@import 'components/card';
 @import 'components/close-button';
 @import 'components/drilldown';
 @import 'components/dropdown-menu';
 @import 'components/dropdown';
-@import 'components/flex-video';
+@import 'components/flex';
+@import 'components/responsive-embed';
 @import 'components/label';
 @import 'components/media-object';
 @import 'components/menu';
+@import 'components/menu-icon';
 @import 'components/off-canvas';
 @import 'components/orbit';
 @import 'components/pagination';
@@ -52,5 +44,5 @@
 @import "01-base/**/*.scss";
 @import "02-component/**/*.scss";
 @import "03-module/**/*.scss";
-@import "04-templates/**/*.scss";
+@import "04-layout/**/*.scss";
 @import "05-pages/**/*.scss";
