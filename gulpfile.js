@@ -1,7 +1,8 @@
-/*
+/**
  * require plugins
  */
 var 
+  $             = require('gulp-load-plugins')(),
   gulp          = require('gulp'),
   autoprefixer  = require('gulp-autoprefixer'),
   browserSync   = require('browser-sync').create(),
@@ -12,8 +13,10 @@ var
   shell         = require('gulp-shell'),
   sourcemaps    = require('gulp-sourcemaps'),
   prompt        = require('gulp-prompt');
+  //torsion       = require('./pattern-lab/torsion.json');
 
-/*
+
+/**
  * setup variables
  */
 var
@@ -22,41 +25,65 @@ var
   scss          = 'pattern-lab/source/_patterns/**/*.scss',
   twig          = 'pattern-lab/source/_patterns/**/*.{twig, md}',
   cssOutput     = 'pattern-lab/source/css',
+  sassIncludes  = [
+    'bower_components/foundation-sites/scss',
+    'bower_components/motion-ui/src'
+  ];
   cms           = '',
   themePath     = '',
   projectName   = '';
 
 
-// Watch for changes.
+
+/**
+ * watch for changes
+ */
 gulp.task('watch', ['browserSync', 'sass'], function() {
   gulp.watch(scss, ['sass', ['patternlab']]);
   gulp.watch(twig, ['patternlab']);
 });
 
 
-// Compile Sass.
-gulp.task('sass', function() {
-  return gulp.src(scss)
-      .pipe(sourcemaps.init())
-      .pipe(sassGlob())
-      .pipe(sass({
-        includePaths: [
-          // @TODO. Can't get the includes paths to work'
-        ]
-      }).on('error', sass.logError))
-      .pipe(autoprefixer({
-        browsers: ['last 2 versions'],
-        cascade: false
-      }))
-      .pipe(sourcemaps.write('./'))
-      .pipe(gulp.dest(cssOutput))
-      .pipe(browserSync.reload({
-        stream: true
-      }))
+/**
+ * copy JS components
+ */
+gulp.task('copyJSComponents', function() {
+  var
+    torsion = require('./pattern-lab/torsion.json');
+  
+  return gulp.src('', {read: false})
+  .pipe()
 });
 
 
-// Browser Sync Options.
+/**
+ * compile sass
+ */
+gulp.task('sass', function() {
+  return gulp.src(scss)
+  .pipe(sourcemaps.init())
+  .pipe(sassGlob())
+  .pipe(
+    $.sass({
+      outputStyle: 'nested',
+      includePaths: sassIncludes
+    })
+  .on('error', sass.logError))
+  .pipe(autoprefixer({
+    browsers: ['last 2 versions'],
+    cascade: false
+  }))
+  .pipe(sourcemaps.write('./'))
+  .pipe(gulp.dest(cssOutput))
+  .pipe(browserSync.reload({
+    stream: true
+  }))
+});
+
+
+/**
+ * browser sync options
+ */
 gulp.task('browserSync', function() {
   browserSync.init({
     server: {
@@ -66,15 +93,17 @@ gulp.task('browserSync', function() {
 });
 
 
-// Generates Pattern Lab Twig files.
+/**
+ * generates pattern lab twig files
+ */
 gulp.task('patternlab', function () {
   return gulp.src('', {read: false})
-      .pipe(shell([
-        'php pattern-lab/core/console --generate'
-      ]))
-      .pipe(browserSync.reload({
-        stream: true
-      }))
+  .pipe(shell([
+    'php pattern-lab/core/console --generate'
+  ]))
+  .pipe(browserSync.reload({
+    stream: true
+  }))
 });
 
 
@@ -118,7 +147,7 @@ gulp.task('getUserInput', function () {
 });
 
 
-/*
+/**
  * initialize torsion using yeoman scaffolding
  * @dependency: getUserInput (function)
  */
@@ -130,16 +159,22 @@ gulp.task('initializeTorsion', ['getUserInput'], function() {
     ],{
       interactive: true
     }
-  ));
+  ))
 });
 
 
-// Generates modernizr.
+/**
+ * generates modernizr
+ */
 gulp.task('modernizr', function() {
   gulp.src('./js/*.js')
-      .pipe(modernizr())
-      .pipe(gulp.dest("pattern-lab/source/js"))
+  .pipe(modernizr())
+  .pipe(gulp.dest("pattern-lab/source/js"))
 });
 
+
+/**
+ * register tasks
+ */
 gulp.task('init',['initializeTorsion']);
 gulp.task('default',['patternlab', 'watch']);

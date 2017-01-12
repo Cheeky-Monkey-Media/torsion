@@ -30,11 +30,12 @@ module.exports = generators.Base.extend({
     this.projectname = this.options['projectname'];
     this.projectnameSafe = this.options['projectname'].toLowerCase().replace(/ /g, "_");
     this.themePath = this.options['themepath'] + '/';
+    this.cms = this.options['cms'];
   },
 
   initializing: function () {
     this.pkg = require('../../package.json');
-    this.log(yosay('Setting up scaffolding for ' + this.options['projectname'] + " using " + this.options['cms'] + " and installing theme to " + this.options['themepath'] + '. Remember, monkeys are sexy.'));
+    this.log(yosay('Setting up scaffolding for your "' + this.options['projectname'] + '" project, using ' + this.options['cms'] + ' and installing theme files to "' + this.options['themepath'] + '". Remember, monkeys are sexy.'));
   },  
   
   writing: {
@@ -54,10 +55,11 @@ module.exports = generators.Base.extend({
     },
     torsionFile: function() {
       this.fs.copyTpl(
-        this.templatePath('_torsion'),
-        this.destinationPath('pattern-lab/.torsion'),
+        this.templatePath('_torsion.json'),
+        this.destinationPath('pattern-lab/torsion.json'),
         {
           themePath: this.themePath,
+          cms: this.cms
         }
       );
     },

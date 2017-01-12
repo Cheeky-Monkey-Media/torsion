@@ -9,6 +9,7 @@
   "devDependencies": {
     "foundation-sites": "^6.3.0",
     "intentionjs": "^0.9.9",
-    "motion-ui": "^1.2.2"
+    "motion-ui": "^1.2.2",
+    "owl.carousel": "^2.2.0"
   }
 }
