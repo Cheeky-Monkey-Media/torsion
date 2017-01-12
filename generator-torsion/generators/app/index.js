@@ -90,9 +90,9 @@ module.exports = generators.Base.extend({
             theme_name: this.projectnameSafe
           }
         ),
-        this.fs.copyTpl(
-          this.templatePath('_d8/_templates/_html/_html.html.twig'),
-          this.destinationPath(this.themePath + this.projectnameSafe + '/templates/html/html.html.twig')
+        this.fs.bulkDirectory(
+          this.templatePath('_d8/_templates'),
+          this.destinationPath(this.themePath + this.projectnameSafe + '/templates')
         )
       }
       if (this.options['cms'] === "drupal7") {

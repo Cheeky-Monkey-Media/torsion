@@ -38,14 +38,13 @@
 #}
 {%
 set classes = [
-'card',
+  content.field_callout_coloring|field_value,
+  content.field_callout_size|field_value
 ]
 %}
 
-{% include '@component/03-card/00-basics.twig' with {
-  title: content.field_component_title,
-  image: content.field_card_image,
+{% include '@component/02-callout/00-callout.twig' with {
   body: content.field_component_body|field_value,
-  image_bellow: content.field_card_image_below|field_value
+  classes: classes|safe_join(" ")
 } only %}
 

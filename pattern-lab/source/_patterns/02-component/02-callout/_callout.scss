@@ -1,0 +1,7 @@
+.callout {
+  @include callout-base;
+}
+
+.callout.inverse {
+  color: #fff;
+}
