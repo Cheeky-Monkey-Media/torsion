@@ -13,7 +13,6 @@ var
   shell         = require('gulp-shell'),
   sourcemaps    = require('gulp-sourcemaps'),
   prompt        = require('gulp-prompt');
-  //torsion       = require('./pattern-lab/torsion.json');
 
 
 /**

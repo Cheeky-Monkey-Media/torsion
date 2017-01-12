@@ -3,3 +3,7 @@ export/*
 public/*
 source/styleguide/*
 vendor/*
+.bowerrc
+.editorconfig
+.jshintrc
+torsion.json

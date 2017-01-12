@@ -1,8 +1,25 @@
 {
-  "key": "value",
-  "key2": "use this for variables you want to load globally",
+  "site_name": "Torsion",
+  "main_menu": {
+    "home": {
+      "url": "#",
+      "title": "Home",
+      "active": "true"
+    },
+    "about": {
+      "url": "#",
+      "title": "About"
+    },
+    "service": {
+      "url": "#",
+      "title": "Service"
+    },
+    "contact": {
+      "url": "#",
+      "title": "Contact"
+    }
+  },
   "title": "Nullizzle shizznit velizzle, hizzle, suscipit own yo', gravida vizzle, arcu.",
-  "lorempixel": "cats",
   "img": {
     "avatar": {
       "src": "http://placeimg.com/100/100/people",
@@ -16,11 +33,11 @@
       "src": "http://placeimg.com/400/300/tech",
       "alt": "Rectangle"
     },
-    "landscape-4x3": {
+    "landscape_4x3": {
       "src": "http://placeimg.com/400/300/tech",
       "alt": "4x3 Image"
     },
-    "landscape-16x9": {
+    "landscape_16x9": {
       "src": "http://placeimg.com/640/360/tech",
       "alt": "16x9 Image"
     }

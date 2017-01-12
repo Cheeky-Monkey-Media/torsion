@@ -35,7 +35,7 @@ module.exports = generators.Base.extend({
 
   initializing: function () {
     this.pkg = require('../../package.json');
-    this.log(yosay('Setting up scaffolding for your "' + this.options['projectname'] + '" project, using ' + this.options['cms'] + ' and installing theme files to "' + this.options['themepath'] + '". Remember, monkeys are sexy.'));
+    this.log(yosay('Setting up scaffolding for your "' + this.options['projectname'] + '" project, using ' + this.options['cms'] + ', and installing theme files to "' + this.options['themepath'] + '". Remember, monkeys are sexy.'));
   },  
   
   writing: {
@@ -92,9 +92,9 @@ module.exports = generators.Base.extend({
             theme_name: this.projectnameSafe
           }
         ),
-        this.fs.copyTpl(
-          this.templatePath('_d8/_templates/_html/_html.html.twig'),
-          this.destinationPath(this.themePath + this.projectnameSafe + '/templates/html/html.html.twig')
+        this.fs.copy(
+          this.templatePath('_d8/_templates/**/*.*'),
+          this.destinationPath(this.themePath + this.projectnameSafe + '/templates')
         )
       }
       if (this.options['cms'] === "drupal7") {

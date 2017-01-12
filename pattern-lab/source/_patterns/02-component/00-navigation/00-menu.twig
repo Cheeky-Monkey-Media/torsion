@@ -1,15 +1,14 @@
 <ul class="menu">
-    <li><a href="#">One</a></li>
-    <li class="active"><a href="#">Two</a></li>
-    <li><a href="#">Three</a></li>
-    <li><a href="#">Four</a></li>
-</ul>
-
-<hr>
-
-<ul class="menu">
-    <li class="menu-text">Site Title</li>
-    <li><a href="#">One</a></li>
-    <li><a href="#">Two</a></li>
-    <li><a href="#">Three</a></li>
+  {% for item in main_menu %}
+    {%
+      set classes = [
+      item.is_expanded ? 'menu-item--expanded',
+      item.is_collapsed ? 'menu-item--collapsed',
+      item.in_active_trail ? 'active',
+      ]
+    %}
+    <li{{ item.attributes.addClass(classes) }}>
+      <a href="{{ item.url }}">{{ item.title }}</a>
+    </li>
+  {% endfor %}
 </ul>

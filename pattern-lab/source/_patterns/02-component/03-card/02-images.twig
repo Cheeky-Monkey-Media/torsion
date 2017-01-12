@@ -1,6 +1,6 @@
 <!-- image has no padding -->
 <div class="card">
-    <img src="assets/img/generic/rectangle-1.jpg">
+    <img src="{{ img.landscape_4x3.src }}" alt="{{ img.landscape_4x3.alt }}">
     <div class="card-section">
         <p>This is a simple card with an image.</p>
     </div>
@@ -9,7 +9,7 @@
 <!-- image has padding -->
 <div class="card">
     <div class="card-section">
-        <img src="assets/img/generic/rectangle-1.jpg">
+        <img src="{{ img.landscape_4x3.src }}" alt="{{ img.landscape_4x3.alt }}">
     </div>
     <div class="card-section">
         <p>This is a simple card with an image inside a `.card-section`.</p>
@@ -20,5 +20,5 @@
     <div class="card-section">
         <p>Images work just fine below the content too!</p>
     </div>
-    <img src="assets/img/generic/rectangle-1.jpg">
+    <img src="{{ img.landscape_4x3.src }}" alt="{{ img.landscape_4x3.alt }}">
 </div>

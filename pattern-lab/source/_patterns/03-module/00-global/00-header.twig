@@ -1,6 +1,15 @@
 <header class="header" role="banner">
-    {% include "base-logo" %}
-    {% include "component-menu" %}
-
-    {% include "component-search" %}
+  <div class="top-bar">
+      <div class="container">
+      <div class="top-bar-left">
+        {{ navigation }}
+      </div>
+      <div class="top-bar-right">
+        <ul class="menu">
+          <li><input type="search" placeholder="Search"></li>
+          <li><button type="button" class="button">Search</button></li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </header>
