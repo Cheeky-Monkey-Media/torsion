@@ -1,0 +1,11 @@
+.card {
+  @include card-container($card-background, $card-font-color, $card-margin, $card-border, $card-border-radius, $card-shadow);
+}
+
+.card-divider {
+  @include card-divider;
+}
+
+.card-section {
+  @include card-section;
+}
