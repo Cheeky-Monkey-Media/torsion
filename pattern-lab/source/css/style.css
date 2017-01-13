@@ -118,7 +118,7 @@
 .card {
   margin-bottom: 1rem;
   border: 1px solid #e6e6e6;
-  border-radius: 0;
+  border-radius: 20px;
   background: #fefefe;
   box-shadow: none;
   overflow: hidden;
@@ -128,7 +128,8 @@
 
 .card-divider {
   padding: 1rem;
-  background: #e6e6e6; }
+  background: #e6e6e6;
+  background: none; }
   .card-divider > :last-child {
     margin-bottom: 0; }
 

@@ -6,6 +6,7 @@ var
   gulp          = require('gulp'),
   autoprefixer  = require('gulp-autoprefixer'),
   browserSync   = require('browser-sync').create(),
+  copydir        = require('copy-dir');
   sass          = require('gulp-sass'),
   sassGlob      = require('gulp-sass-glob'),
   debug         = require('gulp-debug'),
@@ -39,7 +40,7 @@ var
  */
 gulp.task('watch', ['browserSync', 'sass'], function() {
   gulp.watch(scss, ['sass', ['patternlab']]);
-  gulp.watch(twig, ['patternlab']);
+  gulp.watch(twig, ['patternlab', 'copyPatterns']);
 });
 
 
@@ -74,6 +75,7 @@ gulp.task('sass', function() {
   }))
   .pipe(sourcemaps.write('./'))
   .pipe(gulp.dest(cssOutput))
+  .pipe(gulp.dest('../themes/custom/mynewtheme/css'))
   .pipe(browserSync.reload({
     stream: true
   }))
@@ -105,6 +107,12 @@ gulp.task('patternlab', function () {
   }))
 });
 
+/**
+ * copy pattern lab patterns folder to theme
+ */
+gulp.task('copyPatterns', function() {
+  copydir.sync('pattern-lab/source/_patterns', '../themes/custom/mynewtheme/_patterns');
+});
 
 /**
  * get user input and store in global variables
