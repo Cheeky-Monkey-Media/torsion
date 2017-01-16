@@ -1,0 +1,38 @@
+// Foundation for Sites by ZURB
+// foundation.zurb.com
+// Licensed under MIT Open Source
+
+////
+/// @group dropdown-menu
+////
+
+/// Enables arrows for items with dropdown menus.
+/// @type Boolean
+$dropdownmenu-arrows: true;
+
+/// Sets dropdown menu arrow color if arrow is used.
+/// @type Color
+$dropdownmenu-arrow-color: $anchor-color;
+
+/// Sets dropdown menu arrow size if arrow is used.
+/// @type Length
+$dropdownmenu-arrow-size: 6px;
+
+/// Minimum width of dropdown sub-menus.
+/// @type Length
+$dropdownmenu-min-width: 200px;
+
+/// Background color for dropdowns.
+/// @type Color
+$dropdownmenu-background: $white;
+
+/// Border for dropdown sub-menus.
+/// @type List
+$dropdownmenu-border: 1px solid $medium-gray;
+
+// Border width for dropdown sub-menus.
+// Used to adjust top margin of a sub-menu if a border is used.
+// @type Length
+$dropdownmenu-border-width: nth($dropdownmenu-border, 1);
+
+@include foundation-dropdown-menu;

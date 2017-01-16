@@ -27,6 +27,9 @@ component-libraries:
   layout:
     paths:
       - _patterns/04-layout
+  pages:
+    paths:
+      - _patterns/05-pages
 
 regions:
   header: 'Header'

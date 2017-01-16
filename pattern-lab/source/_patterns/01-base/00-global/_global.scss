@@ -1,0 +1,112 @@
+// Foundation for Sites by ZURB
+// foundation.zurb.com
+// Licensed under MIT Open Source
+
+// sass-lint:disable force-attribute-nesting, force-pseudo-nesting, no-color-literals, no-qualifying-elements
+
+////
+/// @group global
+////
+
+/// Font size attribute applied to `<html>` and `<body>`. We use 100% by default so the value is inherited from the user's browser settings.
+/// @type Number
+$global-font-size: 100%;
+
+/// Global width of your site. Used by the grid to determine row width.
+/// @type Number
+$global-width: rem-calc(1200);
+
+/// Default line height for all type. `$global-lineheight` is 24px while `$global-font-size` is 16px
+/// @type Number
+$global-lineheight: 1.5;
+
+/// Colors used for buttons, callouts, links, etc. There must always be a color called `primary`.
+/// @type Map
+$foundation-palette: (
+        primary: #1779ba,
+        secondary: #767676,
+        success: #3adb76,
+        warning: #ffae00,
+        alert: #cc4b37,
+);
+
+/// Color used for light gray UI items.
+/// @type Color
+$light-gray: #e6e6e6;
+
+/// Color used for medium gray UI items.
+/// @type Color
+$medium-gray: #cacaca;
+
+/// Color used for dark gray UI items.
+/// @type Color
+$dark-gray: #8a8a8a;
+
+/// Color used for black ui items.
+/// @type Color
+$black: #0a0a0a;
+
+/// Color used for white ui items.
+/// @type Color
+$white: #fefefe;
+
+/// Background color of the body.
+/// @type Color
+$body-background: $white;
+
+/// Text color of the body.
+/// @type Color
+$body-font-color: $black;
+
+/// Font stack of the body.
+/// @type List
+$body-font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
+
+/// Set to `true` to enable antialiased type, using the `-webkit-font-smoothing` and `-moz-osx-font-smoothing` CSS properties.
+/// @type Boolean
+$body-antialiased: true;
+
+/// Global value used for margin on components.
+/// @type Number
+$global-margin: 1rem;
+
+/// Global value used for padding on components.
+/// @type Number
+$global-padding: 1rem;
+
+/// Global font weight used for normal type.
+/// @type Keyword | Number
+$global-weight-normal: normal;
+
+/// Global font weight used for bold type.
+/// @type Keyword | Number
+$global-weight-bold: bold;
+
+/// Global value used for all elements that have a border radius.
+/// @type Number
+$global-radius: 0;
+
+/// Sets the text direction of the CSS. Can be either `ltr` or `rtl`.
+/// @type Keyword
+$global-text-direction: ltr;
+
+/// Enables flexbox for components that support it.
+/// @type Boolean
+$global-flexbox: false;
+
+@if not map-has-key($foundation-palette, primary) {
+  @error 'In $foundation-palette, you must have a color named "primary".';
+}
+
+// Internal variables used for text direction
+$global-left: if($global-text-direction == rtl, right, left);
+$global-right: if($global-text-direction == rtl, left, right);
+
+// Internal variables used for colors
+$primary-color: get-color(primary);
+$secondary-color: get-color(secondary);
+$success-color: get-color(success);
+$warning-color: get-color(warning);
+$alert-color: get-color(alert);
+
+@include foundation-global-styles;

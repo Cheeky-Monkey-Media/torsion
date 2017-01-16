@@ -1,0 +1,64 @@
+// Foundation for Sites by ZURB
+// foundation.zurb.com
+// Licensed under MIT Open Source
+
+////
+/// @group off-canvas
+////
+
+/// Width of a left/right off-canvas panel.
+/// @type Number
+$offcanvas-size: 250px;
+
+/// Height of a top/bottom off-canvas panel.
+/// @type Number
+$offcanvas-vertical-size: 250px;
+
+/// Background color of an off-canvas panel.
+/// @type Color
+$offcanvas-background: $light-gray;
+
+/// Box shadow for the off-canvas panel.
+/// @type Shadow
+$offcanvas-shadow: 0 0 10px rgba($black, 0.7);
+
+/// Z-index of an off-canvas panel with the `push` transition.
+/// @type Number
+$offcanvas-push-zindex: 1;
+
+/// Z-index of an off-canvas panel with the `overlap` transition.
+/// @type Number
+$offcanvas-overlap-zindex: 10;
+
+/// Z-index of an off-canvas panel using the `reveal-for-*` classes or mixin.
+/// @type Number
+$offcanvas-reveal-zindex: 1;
+
+/// Length of the animation on an off-canvas panel.
+/// @type Number
+$offcanvas-transition-length: 0.5s;
+
+/// Timing function of the animation on an off-canvas panel.
+/// @type Keyword
+$offcanvas-transition-timing: ease;
+
+/// If `true`, a revealed off-canvas will be fixed-position, and scroll with the screen.
+/// @type Bool
+$offcanvas-fixed-reveal: true;
+
+/// Background color for the overlay that appears when an off-canvas panel is open.
+/// @type Color
+$offcanvas-exit-background: rgba($white, 0.25);
+
+/// CSS class used for the main content area. The off-canvas mixins use this to target the page content.
+$maincontent-class: 'off-canvas-content';
+
+/// Adds baseline styles for off-canvas. This CSS is required to make the other pieces work.
+.off-canvas {
+  @include off-canvas-basics;
+  @include off-canvas-base;
+}
+
+.off-canvas-content {
+  @include off-canvas-content;
+}
