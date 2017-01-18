@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "install": "bower install"
+    "install": "bower install && composer install -d pattern-lab"
   },
   "devDependencies": {
     "browser-sync": "^2.18.5",
