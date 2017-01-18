@@ -1,4 +1,5 @@
 {
   "cms": "<%= cms %>",
-  "themepath": "<%= themePath %>"
+  "themepath": "<%= themePath %>",
+  "projectname": "<%= projectName %>"
 }
