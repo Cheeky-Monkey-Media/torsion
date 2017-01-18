@@ -1,0 +1,43 @@
+// Foundation for Sites by ZURB
+// foundation.zurb.com
+// Licensed under MIT Open Source
+
+////
+/// @group menu
+////
+
+/// Margin of a menu.
+/// @type Number
+$menu-margin: 0;
+
+/// Left-hand margin of a nested menu.
+/// @type Number
+$menu-margin-nested: 1rem;
+
+/// Padding for items in a menu.
+/// @type Number
+$menu-item-padding: 0.7rem 1rem;
+
+/// Text color of an active menu item.
+/// @type Color
+$menu-item-color-active: $white;
+
+/// Background color of an active menu item.
+/// @type Color
+$menu-item-background-active: get-color(primary);
+
+/// Spacing between an icon and text in a menu item.
+/// @type Number
+$menu-icon-spacing: 0.25rem;
+
+/// Background color for an hovered menu item.
+/// @type Color
+$menu-item-background-hover: $light-gray;
+
+/// Color for bordered menu
+/// @type Color
+$menu-border: $light-gray;
+
+.menu {
+  @include menu-base;
+}

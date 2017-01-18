@@ -1,32 +1,25 @@
-// Sass utilities
-@import 'util/util';
-@import 'global';
-
-// Components
-@import 'components/top-bar';
-
 /// Padding for the top bar.
 /// @type Number
-$topbar-padding: 0.5rem !default;
+$topbar-padding: 0.5rem;
 
 /// Background color for the top bar. This color also cascades to menus within the top bar.
 /// @type Color
-$topbar-background: $light-gray !default;
+$topbar-background: $light-gray;
 
 /// Background color submenus within the top bar. Usefull if $topbar-background is transparent.
 /// @type Color
-$topbar-submenu-background: $topbar-background !default;
+$topbar-submenu-background: $topbar-background;
 
 /// Spacing for the top bar title.
-$topbar-title-spacing: 9rem 1rem 0.5rem 0 !default;
+$topbar-title-spacing: 9rem 1rem 0.5rem 0;
 
 /// Maximum width of `<input>` elements inside the top bar.
 /// @type Number
-$topbar-input-width: 200px !default;
+$topbar-input-width: 200px;
 
 /// Breakpoint at which top bar switches from mobile to desktop view.
 /// @type Breakpoint
-$topbar-unstack-breakpoint: medium !default;
+$topbar-unstack-breakpoint: medium;
 
 .top-bar {
   @include top-bar-container;

@@ -1,4 +1,4 @@
-<ul class="menu vertical" data-drilldown>
+<ul class="dropdown menu" data-dropdown-menu>
   {% for item in main_menu %}
     {% set classes = [
     item.in_active_trail ? 'active',
@@ -6,7 +6,7 @@
     <li{{ item.attributes.addClass(classes) }}>
       <a href="{{ item.url }}">{{ item.title }}</a>
       {% if item.bellow %}
-        <ul class="vertical menu">
+        <ul class="menu">
           {% for item in item.bellow %}
             <li><a href="{{ item.url }}">{{ item.title }}</a></li>
           {% endfor %}

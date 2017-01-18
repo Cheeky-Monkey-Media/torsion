@@ -30,8 +30,8 @@ var
     'bower_components/motion-ui/src'
   ];
   cms           = '',
-  themePath     = '',
-  projectName   = '';
+  themePath     = '../themes/custom/',
+  projectName   = 'torsion';
 
 
 
@@ -75,7 +75,7 @@ gulp.task('sass', function() {
   }))
   .pipe(sourcemaps.write('./'))
   .pipe(gulp.dest(cssOutput))
-  .pipe(gulp.dest('../themes/custom/mynewtheme/css'))
+  .pipe(gulp.dest(themePath + projectName + '/css'))
   .pipe(browserSync.reload({
     stream: true
   }))
@@ -111,7 +111,7 @@ gulp.task('patternlab', function () {
  * copy pattern lab patterns folder to theme
  */
 gulp.task('copyPatterns', function() {
-  copydir.sync('pattern-lab/source/_patterns', '../themes/custom/mynewtheme/_patterns');
+  copydir.sync('pattern-lab/source/_patterns', themePath + projectName + '/_patterns');
 });
 
 /**
