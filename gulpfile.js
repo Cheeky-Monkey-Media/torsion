@@ -6,14 +6,15 @@ var
   gulp          = require('gulp'),
   autoprefixer  = require('gulp-autoprefixer'),
   browserSync   = require('browser-sync').create(),
-  copydir        = require('copy-dir');
+  copydir       = require('copy-dir');
   sass          = require('gulp-sass'),
   sassGlob      = require('gulp-sass-glob'),
   debug         = require('gulp-debug'),
   modernizr     = require('gulp-modernizr'),
   shell         = require('gulp-shell'),
   sourcemaps    = require('gulp-sourcemaps'),
-  prompt        = require('gulp-prompt');
+  prompt        = require('gulp-prompt'),
+  gutil         = require('gulp-util');
 
 
 /**
@@ -47,12 +48,18 @@ gulp.task('watch', ['browserSync', 'sass'], function() {
 /**
  * copy JS components
  */
-gulp.task('copyJSComponents', function() {
+gulp.task('copyJSComponentFiles', function() {
   var
-    torsion = require('./pattern-lab/torsion.json');
-  
-  return gulp.src('', {read: false})
-  .pipe()
+    torsion = require('torsion.json');
+});
+
+
+/**
+ * copy TWIG components
+ */
+gulp.task('copyTWIGComponentFiles', function() {
+  var
+    torsion = require('torsion.json');
 });
 
 
