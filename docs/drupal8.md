@@ -1,2 +1,2 @@
 ## Requirements
-1. [Component Libraries](Component Libraries) needs to be installed.
+1. Drupal Module - [Component Libraries](Component Libraries) needs to be installed.
