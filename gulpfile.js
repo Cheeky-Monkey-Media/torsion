@@ -6,7 +6,6 @@ var
   gulp          = require('gulp'),
   autoprefixer  = require('gulp-autoprefixer'),
   browserSync   = require('browser-sync').create(),
-  copydir       = require('copy-dir');
   sass          = require('gulp-sass'),
   sassGlob      = require('gulp-sass-glob'),
   debug         = require('gulp-debug'),
@@ -14,6 +13,7 @@ var
   shell         = require('gulp-shell'),
   sourcemaps    = require('gulp-sourcemaps'),
   prompt        = require('gulp-prompt'),
+  fs            = require('fs'),
   gutil         = require('gulp-util');
 
 
@@ -25,6 +25,7 @@ var
   theme         = '',
   scss          = 'pattern-lab/source/_patterns/**/*.scss',
   twig          = 'pattern-lab/source/_patterns/**/*.{twig, md}',
+  templates     = 'pattern-lab/source/_patterns/**/*.twig',
   cssOutput     = 'pattern-lab/source/css',
   sassIncludes  = [
     'bower_components/foundation-sites/scss',
@@ -41,16 +42,16 @@ var
  */
 gulp.task('watch', ['browserSync', 'sass'], function() {
   gulp.watch(scss, ['sass', ['patternlab']]);
-  gulp.watch(twig, ['patternlab', 'copyPatterns']);
+  gulp.watch(twig, ['patternlab', 'copyTWIGComponentFiles']);
 });
 
 
 /**
- * copy JS components
+ * copy JS components and build the dependecies library
+ * @TODO
  */
-gulp.task('copyJSComponentFiles', function() {
-  var
-    torsion = require('torsion.json');
+gulp.task('buildJSDependencies', function() {
+      
 });
 
 
@@ -59,7 +60,19 @@ gulp.task('copyJSComponentFiles', function() {
  */
 gulp.task('copyTWIGComponentFiles', function() {
   var
-    torsion = require('torsion.json');
+    torsion               = '';
+    template_destination  = '';
+
+  if (fs.existsSync('./torsion.json')) {
+    torsion               = require('./torsion.json'),
+    template_destination  = torsion.themepath + torsion.projectname + '/patterns';
+  }
+  else {
+    template_destination  = themePath + projectName + '/patterns';
+  }
+
+  return gulp.src(templates)
+  .pipe(gulp.dest(template_destination));
 });
 
 
@@ -67,6 +80,19 @@ gulp.task('copyTWIGComponentFiles', function() {
  * compile sass
  */
 gulp.task('sass', function() {
+  var
+    torsion          = '';
+    css_destination  = '';
+
+  if (fs.existsSync('./torsion.json')) {
+    torsion         = require('./torsion.json'),
+    css_destination = torsion.themepath + torsion.projectname + '/css';
+  }
+  else {
+    css_destination = themePath + projectName + '/css';
+  }
+
+
   return gulp.src(scss)
   .pipe(sourcemaps.init())
   .pipe(sassGlob())
@@ -82,7 +108,7 @@ gulp.task('sass', function() {
   }))
   .pipe(sourcemaps.write('./'))
   .pipe(gulp.dest(cssOutput))
-  .pipe(gulp.dest(themePath + projectName + '/css'))
+  .pipe(gulp.dest(css_destination))
   .pipe(browserSync.reload({
     stream: true
   }))

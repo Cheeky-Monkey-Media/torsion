@@ -20,16 +20,16 @@ stylesheets-remove:
 component-libraries:
   component:
     paths:
-      - _patterns/02-component
+      - patterns/02-component
   module:
     paths:
-      - _patterns/03-module
+      - patterns/03-module
   layout:
     paths:
-      - _patterns/04-layout
+      - patterns/04-layout
   pages:
     paths:
-      - _patterns/05-pages
+      - patterns/05-pages
 
 regions:
   header: 'Header'

@@ -1,6 +1,6 @@
 {
   "name": "generator-torsion",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "Scaffolding for Torsion Projects",
   "author": "Cheeky Monkey Media",
   "main": "app/index.js",
